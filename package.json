@@ -1,19 +1,22 @@
 {
-  "name": "cubixora-smp-discord-bot",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Cubixora SMP Discord moderation and Minecraft community bot",
-  "main": "dcs.js",
+  "name": "workspace",
+  "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
-    "start": "node dcs.js",
-    "check": "node --check dcs.js"
+    "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
+    "bot": "node dcs.js",
+    "build": "pnpm run typecheck && pnpm -r --if-present run build",
+    "typecheck:libs": "tsc --build",
+    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
   },
-  "engines": {
-    "node": ">=18"
-  },
+  "private": true,
   "dependencies": {
-    "discord.js": "^14.27.0",
-    "express": "^5.2.1",
-    "minecraft-server-util": "^5.4.4"
+    "@replit/connectors-sdk": "^0.4.3",
+    "discord.js": "^14.23.2",
+    "dotenv": "^17.2.2"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6",
+    "typescript": "~5.9.3"
   }
 }
