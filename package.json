@@ -1,0 +1,19 @@
+{
+  "name": "cubixora-smp-discord-bot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cubixora SMP Discord moderation and Minecraft community bot",
+  "main": "dcs.js",
+  "scripts": {
+    "start": "node dcs.js",
+    "check": "node --check dcs.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "discord.js": "^14.27.0",
+    "express": "^5.2.1",
+    "minecraft-server-util": "^5.4.4"
+  }
+}
