@@ -13,6 +13,23 @@ Gerekli değişkenleri Replit Secrets/Environment Variables kısmına ekleyin. �
 
 Discord Developer Portal'da **Message Content Intent** ve **Server Members Intent** açılmalı; botta mesaj yönetme, rol yönetme, üyeleri susturma, banlama ve kanal yönetme izinleri verilmelidir.
 
+## Replit'te çalıştırma
+
+1. Bu depoyu Replit'e import edin.
+2. `.env.example` içindeki değişkenleri Replit **Secrets / Environment Variables** bölümünde tanımlayın.
+3. Çalıştırma komutu olarak `pnpm run bot` kullanın.
+4. Botun çevrimiçi olduğunu Discord sunucusunda kontrol edin.
+
+## Render'da çalıştırma
+
+Render'da **New Web Service** oluşturup bu GitHub deposunu bağlayın ve şu ayarları kullanın:
+
+- **Build Command:** `corepack enable && pnpm install --frozen-lockfile`
+- **Start Command:** `pnpm run bot`
+- **Health Check Path:** `/health`
+
+Render'ın Environment bölümünde `.env.example` içindeki değişkenleri tanımlayın. `PORT` değerini Render otomatik sağlar; `DISCORD_TOKEN` ve `MC_WEBHOOK_SECRET` gibi gizli değerleri kaynak koda veya GitHub'a eklemeyin.
+
 ## Prefix komutları
 
 Varsayılan prefix `e!`:
